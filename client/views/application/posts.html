@@ -1,0 +1,29 @@
+<template name="posts">
+	<h1>Liste des Posts</h1>
+	{{#each posts}}
+		{{> post}}
+	{{/each}}
+</template>
+
+<template name="post">
+	<div class="post">
+		{{#if hide}}
+			Ce post est caché
+		{{else}}
+			{{title}}, par {{ setAuthor }}
+		{{/if}}
+	</div>
+</template>
+
+<tempalte name="home">
+	<h2>Posts</h2>
+	{{> quickForm collection="Posts" id="insertPostForm" type="insert"}}
+	
+	<h3>Liste des Posts</h3>
+	<ul>
+		{{#each posts}}
+			<li><b>{{title}}</b>, par <em>{{ author }}</em></li>
+		{{/each}}
+	</ul>
+</template>
+

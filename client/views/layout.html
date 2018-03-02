@@ -1,0 +1,22 @@
+<template name="mainLayout">
+	<h1>Site de commande</h1>
+	<div>
+		<ul>
+			<li><a href="{{pathFor route='home'}}">Home</a></li>
+			<li><a href="{{pathFor route='posts'}}">Posts</a></li>
+			<li><a href="{{pathFor route='register'}}">Inscription</a></li>
+		</ul>
+	</div>
+	<div>
+		{{> yield}}
+		{{#if currentUser}}
+			<p>
+				<a class="logout">Se déconnecter</a>
+			</p>
+		{{else}}
+			<p>
+				<a href="{{pathFor route='login'}}">Se connecter</a>
+			</p>
+		{{/if}}
+	</div>
+</template>
